@@ -1,0 +1,78 @@
+// COLOR VARIABLES
+$color-primary: #c69963;
+$color-primary-dark: #B28451;
+
+$color-secondary: #101d2c;
+
+$color-grey-light-1: #f9f7f6;
+$color-grey-light-2: #aaa;
+
+$color-grey-dark-1: #54483A;
+$color-grey-dark-2: #6D5D4B;
+
+// FONT VARIABLES
+$font-primary: 'Nunito', sans-serif;
+$font-display: 'Josefin Sans', sans-serif;
+
+//Responsive breakpoint
+$width-1200:75em;
+$width-1000:62.5em;
+$width-800:50em;
+$width-550:34.37em;
+$width-400:25em;
+
+html{
+    box-sizing:border-box;
+    font-size:62.5%;
+    @media only screen and (max-width:$width-1200){
+        font-size:50%;
+    }
+    @media only screen and (max-width:$width-400){
+        font-size:40%;
+    }
+    
+}
+
+*,
+*::after,
+*::before{
+    box-sizing:inherit;
+    padding:0;
+    margin:0;
+}
+
+body{
+    font-family: $font-primary;
+    color:$color-primary;
+    font-weight:300;
+    line-height:1.6;
+}
+
+.container{
+    display: grid;
+    grid-template-rows: 80vh min-content 40vw repeat(3,min-content);  
+    grid-template-columns: [sidebar-start] 8rem [sidebar-end fullbleed-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content,calc(1/8*114rem)) [col-end] ) [center-end] minmax(6rem, 1fr) [fullbleed-end];
+
+    @media only screen and (max-width:$width-1000){
+        grid-template-rows: 6rem 80vh min-content 40vw repeat(3,min-content);  
+        grid-template-columns: [fullbleed-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content,calc(1/8*114rem)) [col-end] ) [center-end] minmax(6rem, 1fr) [fullbleed-end];
+    
+    }
+    @media only screen and (max-width:$width-800){
+        grid-template-rows: 6rem calc(100vh - 6rem) min-content min-content minmax(min-content,40vw) repeat(3,min-content);  
+        grid-template-columns: [fullbleed-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content,calc(1/8*114rem)) [col-end] ) [center-end] minmax(6rem, 1fr) [fullbleed-end];
+    }
+}
+
+.mb-sm{
+    margin-bottom:2rem;
+}
+.mb-med{
+    margin-bottom:3rem;
+}
+.mb-lg{
+    margin-bottom:4rem;
+}
+.mb-huge{
+    margin-bottom:8rem;
+}
